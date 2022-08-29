@@ -10,9 +10,11 @@ image hiago_putasso = "hiago_oculos_putasso.png"
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define hb = Character("Hiago Bahú", color="#d63031")
-define ht = Character("Hatsune Miku", color="#0EEADF")
 define pov = Character("[povname]", color="#e84393")
+define db = Character("Deco Beto", color="#3a70f5")
+define hb = Character("Hiago Bahú", color="#d63031")
+define mc = Character("Mateus Calza", color="#341f97")
+define ht = Character("Hatsune Miku", color="#0EEADF")
 
 $ romance_points = 0
 
