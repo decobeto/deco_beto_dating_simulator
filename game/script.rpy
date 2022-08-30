@@ -2,10 +2,10 @@
 
 image secretaria = "secretaria.png"
 image contrato = "contrato.jpg"
-image maos = "maos.jpg"
-
-image hiago = "hiago_oculos.png"
-image hiago_putasso = "hiago_oculos_putasso.png"
+image hiago_oculos = "hiago_oculos.png"
+image hatsuneMiku = "hatsuneMiku.png"
+image ciel = "ciel.png"
+image deco_beto_first = "deco_beto_first.png"
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -62,11 +62,13 @@ label escolha_nome:
 
     "Moça da Secretaria" "Obrigada e BEM VINDA A MAIOR FACULDADE DO OESTE DE SANTA CATARINA CAMPUS VIDEIRA."
 
-    jump deco_intro
+    hide secretaria
+
+    jump primeira_aula
 
     return
 
-label deco_intro:
+label primeira_aula:
 
     show secretaria
 
@@ -113,12 +115,12 @@ label bola_intro:
     play music "audio/theNightIsCalling.mp3" fadeout 1.0 fadein 1.0
 
     "Devido à grande falta de boas opções em uma cidade de fim de mundo como Joaçaba, onde está se hospedando, você acaba indo para um dos poucos locais de jovens da cidade: O bar Bola7."
-    "Há uma grande quantidade de pessoas na rua. Você resolve entrar para pegar algumas bebidas e aproveitar o show"
+    "Há uma grande quantidade de pessoas na rua. Você resolve entrar para pegar algumas bebidas e aproveitar o show."
 
     scene bg bola7_dentro
     with fade
 
-    "Está acontecendo o show da Hatsune Miko, uma artista local da cidade"
+    "Está acontecendo o show da Hatsune Miko, uma artista local da cidade."
 
     show hatsuneMiku
 
@@ -133,7 +135,7 @@ label bola_intro:
     "??" "Ei você é nova aqui né?"
     "Ciel" "Eu me chamo Ciel oiiiiiiiiii!!! Como que é teu nome???"
 
-    "Você ouve alguém gritar o nome de Ciel de fora bem alto"
+    "Você ouve alguém gritar o nome de Ciel de fora bem alto."
 
     "Ciel" "Ai amiga alguém tá me chamando já volto aí mas aproveita a noite bastante beijo!!"
 
