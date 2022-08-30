@@ -11,6 +11,7 @@ image deco_beto_first = "deco_beto_first.png"
 # name of the character.
 
 define pov = Character("[povname]", color="#e84393")
+define db_unknown = Character("??", color="#3a70f5")
 define db = Character("Deco Beto", color="#3a70f5")
 define hb = Character("Hiago Bahú", color="#d63031")
 define mc = Character("Mateus Calza", color="#341f97")
@@ -167,7 +168,7 @@ label deco_beto_rescue:
 
     show deco_beto_first
 
-    "??" "Ouch... Precisava me bater com a cabeça assim?"
+    db_unknown "Ouch... Precisava me bater com a cabeça assim?"
 
     menu:
 
@@ -186,20 +187,20 @@ label deco_beto_rescue:
 
 label deco_beto_reasoning:
 
-    "??" "NADA SUA PIRANHA POR QUE EU FARIA ALGO COM VOCÊ??"
+    db_unknown "NADA SUA PIRANHA POR QUE EU FARIA ALGO COM VOCÊ??"
 
     menu: 
 
         "Imagina você desmaiando por ter bebido demais e acordando no quarto de um cara seu idiota!!":
-            "??" "Oh... faz sentido, olha aí o precedente criminal vindo, mas calma vou te explicar o que aconteceu."
+            db_unknown "Oh... faz sentido, olha aí o precedente criminal vindo, mas calma vou te explicar o que aconteceu."
 
         "VAI TOMAR NO SEU CÚ!!":
             $ romance_points =+ 1
-            "??" "Quanta agressividade..."
+            db_unknown "Quanta agressividade..."
         
         "Eu estava inconsciente e acordei no seu quarto?":
             $ romance_points =- 1
-            "??" "Ah... certo, antes que haja mal entendidos preciso me apresentar."
+            db_unknown "Ah... certo, antes que haja mal entendidos preciso me apresentar."
 
     jump deco_beto_intro
 
@@ -216,7 +217,7 @@ label deco_beto_intro:
     menu:
 
         "Muito prazer.. eu acho?":
-            jump deco_beto_coquinha_geladinha
+            jump pegando_coquinha_geladinha
 
         "FODASE QUEM VOCÊ É EU ESTOU INDO EMBORA!!!":
             $ romance_points =+ 2
@@ -224,9 +225,5 @@ label deco_beto_intro:
         
         "Oi... rs":
             $ romance_points =- 1
-            jump deco_beto_coquinha_geladinha
+            jump pegando_coquinha_geladinha
         
-
-    
-    # show hiago:
-        # xalign 1.0 yalign 1.0
