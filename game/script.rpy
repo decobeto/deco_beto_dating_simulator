@@ -27,16 +27,17 @@ label start:
     with Dissolve(6.0)
 
     "Hoje é o seu primeiro dia de aula na sua nova faculdade."
-    "Você teve que transferir pois seus pais estavam mudando de cidade devido ao trabalho."
-    "Uma emoção enorme toma conta de você ao chegar no câmpus."
+    "O ambiente no câmpus é de grande euforia e movimento de pessoas novas se conhecendo."
+    "No caminho várias pessoas te abordam e se apresentam a você em busca de fazer novas amizades."
     "Entretanto alguns documentos não estão certos, é necessário ir até a secretaria assinar alguns papeis."
 
     scene bg secretaria
     with fade
 
-    "A sala tem um design estranho. Parece algo de um banco de imagens"   
+    "A sala te dá uma sensação de déjà vu. Seu design parece chique porém presente em outro jogo de mesma franquia."   
 
     show secretaria
+    with fade
     
     "Moça da Secretaria" "Olá, você é a aluna nova certo?"
 
@@ -49,7 +50,7 @@ label start:
 
 label escolha_nome:
         
-    "Moça da Secretaria" "Okay, vou precisar que você assine esses papeis."
+    "Moça da Secretaria" "Seja muito bem vinda! Preciso que você assine esses papeis."
     show contrato
 
     python:
@@ -58,107 +59,172 @@ label escolha_nome:
         povname = povname.strip()
 
     hide contrato
-    pov "Tudo pronto moça."
 
-    "Moça da Secretaria" "Obrigada e BEM VINDA A FACULDADE."
-    hide secretaria
+    "Moça da Secretaria" "Obrigada e BEM VINDA A MAIOR FACULDADE DO OESTE DE SANTA CATARINA CAMPUS VIDEIRA."
+
+    jump deco_intro
+
+    return
+
+label deco_intro:
+
+    show secretaria
 
     "Você escuta algo"
     play sound "audio/siren.mp3"
     "..."
-    pov "Droga, isso levou mais tempo do que eu imaginava."
-    pov "Preciso correr ou vou chegar atrasada na aula."  
+    pov "Poxa já tá na hora de ir pra aula. Sabe me dizer onde é a sala hoje?"
 
-    scene bg black
-    with fade
-
-    "Você sai correndo através do câmpus."
-
-    scene bg unoesc
-    with fade
-
-    "Sente sua respiração ofegante."
-
-    scene bg black
-    with fade
-
-    "Chega dentro da faculdade"
-    "Vira em um corredor e..."
+    "Moça da Secretaria" "Claro, eu te acompanho até lá."
 
     scene bg corredor
+    with fade
+
+    "Moça da Secretaria" "É aqui, vai ter uma dinâmica entre os cursos, qualquer coisa que precisar é só aparecer na secretária."
+
+    hide secretaria
+
+    scene bg decogroup
+    with fade
+
+    "Você entra na sala e vê diversos grupos formados discutindo temas."
+    "Um menino em especial lhe chama atenção em um dos grupos."
+    "Ele parece com muito sono e entediado forçando prestar atenção no que o velho fala e você se identifica com ele."
+
+    pov "E a voltinha no cabelo dele hein. Muito estilo."
+
+    scene bg black
+    with fade
+
+    play sound "audio/siren.mp3"
+
+    "Após a apresentação, aulas normais acontecem e em seguida você vai embora para casa."
+    "Nova na cidade, você busca opções de bares para descontrair e conhecer pessoas."
+
+    jump bola_intro
+
+    return
+
+label bola_intro:
+    
+    scene bg bola7_frente
+    with fade
+
+    play music "audio/theNightIsCalling.mp3" fadeout 1.0 fadein 1.0
+
+    "Devido à grande falta de boas opções em uma cidade de fim de mundo como Joaçaba, onde está se hospedando, você acaba indo para um dos poucos locais de jovens da cidade: O bar Bola7."
+    "Há uma grande quantidade de pessoas na rua. Você resolve entrar para pegar algumas bebidas e aproveitar o show"
+
+    scene bg bola7_dentro
+    with fade
+
+    "Está acontecendo o show da Hatsune Miko, uma artista local da cidade"
+
+    show hatsuneMiku
+
+    "Você vê um garoto loiro esquisito empolgado com o show. Outras pessoas chegam pra lhe cumprimentar e conversar contigo."
+    
+    hide hatsuneMiku
+    with fade
+
+    show ciel
+    with fade
+
+    "??" "Ei você é nova aqui né?"
+    "Ciel" "Eu me chamo Ciel oiiiiiiiiii!!! Como que é teu nome???"
+
+    "Você ouve alguém gritar o nome de Ciel de fora bem alto"
+
+    "Ciel" "Ai amiga alguém tá me chamando já volto aí mas aproveita a noite bastante beijo!!"
+
+    hide ciel
+    with fade
+
+    "Você continua assistindo ao show e bebendo, curtindo bastante o show."
+    "Você bebe a noite inteira."
+
+    scene bg black
+
+    stop music fadeout 1.0
+
+    "Você não se lembra muito bem o que acontece depois disso."
+
+    jump deco_beto_rescue
+
+    return
+
+label deco_beto_rescue:
+
+    "Você se levanta rapidamente e assustada."
+
+    scene bg deco_room
     with vpunch
 
     pov "Ouch..."
+    pov "Onde eu estou???"
 
-    show hiago:
-        xalign 1.0 yalign 1.0
-    hb "Me desculpe moça"
+    show deco_beto_first
 
-    menu: 
-
-        "Você não olha por onde anda?":
-            $ romance_points =+ 1
-            jump ajuntar_caderno
-
-        "Sai da minha frente ô, to atrasada pra aula":
-            $ romance_points =- 1
-
-        "Tudo bem, eu estava correndo sem olhar":
-            $ romance_points =+ 1
-    
-
-label ajuntar_caderno:
-
-    hb "Foi mal mesmo"
-    hb "Parece que seus cadernos cairam todos no chão"
-    hb "Deixe-me ajuda-lá"
-
-    pov "Não precisa"
-
-    hide hiago
-    with fade
-
-    "Vocês dois se abaixam para ajuntar os cadernos"
-    "Ao olhar mais de perto você percebe que a pele dele é clara"
-    "Clara como leite de amêndoas"
-    "Você se pergunta como podem tirar leite de um animal com mamilos tão pequenos"
-
-    show maos
-    with fade
-
-    "Ao tentar pegar os cadernos suas mãos se encontram"
-    "Você sente seu rosto ficar vermelho"
-
-    hide maos
-    with fade
+    "??" "Ouch... Precisava me bater com a cabeça assim?"
 
     menu:
 
-        "Desculpa":
-            $ romance_points =+ 0
-    
-    show hiago
-    hb "Tudo bem"
+        "MEU DEUS O QUE VOCÊ FEZ COMIGO SEU CANALHA?!?!?":
+            $ romance_points =+ 1
+            jump deco_beto_reasoning
+
+        "Quem é você???":
+            jump deco_beto_intro
+
+        "Credo estou tonta... o que aconteceu?":
+            $ romance_points =- 1
+            jump deco_beto_intro
+
+    return
+
+label deco_beto_reasoning:
+
+    "??" "NADA SUA PIRANHA POR QUE EU FARIA ALGO COM VOCÊ??"
 
     menu: 
 
-        "Bem acho melhor eu ir indo, não quero chegar atrasada":
-            $ romance_points =+ 0
+        "Imagina você desmaiando por ter bebido demais e acordando no quarto de um cara seu idiota!!":
+            "??" "Oh... faz sentido, olha aí o precedente criminal vindo, mas calma vou te explicar o que aconteceu."
 
-    hb "Certo, boa aula"
+        "VAI TOMAR NO SEU CÚ!!":
+            $ romance_points =+ 1
+            "??" "Quanta agressividade..."
+        
+        "Eu estava inconsciente e acordei no seu quarto?":
+            $ romance_points =- 1
+            "??" "Ah... certo, antes que haja mal entendidos preciso me apresentar."
 
-    hide hiago
-
-    hb "Ei... espero te ver por ai"
-
-    "Você da um sorriso e sai em direção a sua sala"
-
-    show bg black
-    with fade
-
-    
-
-
-    # This ends the game.
+    jump deco_beto_intro
 
     return
+
+label deco_beto_intro:
+
+    db "Eu me chamo André Roberto, mais conhecido como Deco Beto muito prazer! (@deco_beto no twitter mulheres)"
+    db "Você tava largada bêbada no chão da rua desmaiada então eu achei que devia te trazer pra dentro de casa descansar."
+    db "Aqui é literalmente na frente do bola como você pode ver."
+
+    "Você acaba se lembrando dele... Ele é o menino com a voltinha no cabelo!!!"
+
+    menu:
+
+        "Muito prazer.. eu acho?":
+            jump deco_beto_coquinha_geladinha
+
+        "FODASE QUEM VOCÊ É EU ESTOU INDO EMBORA!!!":
+            $ romance_points =+ 2
+            jump frente_ap_deco
+        
+        "Oi... rs":
+            $ romance_points =- 1
+            jump deco_beto_coquinha_geladinha
+        
+
+    
+    # show hiago:
+        # xalign 1.0 yalign 1.0
